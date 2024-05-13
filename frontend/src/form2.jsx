@@ -45,12 +45,12 @@ const Label = styled.label`
   margin-bottom: 8px;
 `;
 
-const AcademicForm = () => {
+const FacultyForm = () => {
   const [formData, setFormData] = useState({
     name: '',
-    grade: '',
+    id: '',
     number: '',
-    course: ''
+    subject: ''
   });
 
   const handleChange = (e) => {
@@ -60,7 +60,7 @@ const AcademicForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/students', formData);
+      const response = await axios.post('http://localhost:5000/api/faculty', formData);
       console.log(response.data);
       // Handle success (e.g., show success message)
     } catch (error) {
@@ -71,19 +71,19 @@ const AcademicForm = () => {
 
   return (
     <FormContainer>
-      <p style={{ textAlign: 'center', fontSize: '24px', marginBottom: '20px' }}>Fill the Student Details</p>
+      <p style={{ textAlign: 'center', fontSize: '24px', marginBottom: '20px' }}>Fill the Faculty Details</p>
       <Form onSubmit={handleSubmit}>
         <Label htmlFor="name">Name</Label>
         <Input type="text" id="name" name="name" placeholder="Enter your name" value={formData.name} onChange={handleChange} />
         
-        <Label htmlFor="grade">Grade</Label>
-        <Input type="number" id="grade" name="grade" placeholder="Enter your grade" value={formData.grade} onChange={handleChange} />
+        <Label htmlFor="id">Id</Label>
+        <Input type="number" id="id" name="id" placeholder="Enter your Id" value={formData.id} onChange={handleChange} />
         
-        <Label htmlFor="number">Roll Number</Label>
-        <Input type="text" id="number" name="number" placeholder="Enter your roll  number" value={formData.number} onChange={handleChange} />
+        <Label htmlFor="number">Number</Label>
+        <Input type="tel" id="number" name="number" placeholder="Enter your phone  number" value={formData.number} onChange={handleChange} />
         
-        <Label htmlFor="course">Courses</Label>
-        <Input type="text" id="course" name="course" placeholder="Enter a course" value={formData.course} onChange={handleChange} />
+        <Label htmlFor="subjects">Subjects</Label>
+        <Input type="text" id="subject" name="subject" placeholder="Enter a subject" value={formData.subject} onChange={handleChange} />
         
         <Button type="submit">Submit</Button>
       </Form>
@@ -91,4 +91,4 @@ const AcademicForm = () => {
   );
 };
 
-export default AcademicForm;
+export default FacultyForm;
