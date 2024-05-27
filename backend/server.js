@@ -9,10 +9,10 @@ app.use(cors());
 app.use(express.json());
 
 const connection = mysql.createConnection({
-  host: "localhost",
+  host: "docker_container_name",
   user: "root",
-  password: "Jemmy.mysql",
-  database: "cloud"
+  password: "password",
+  database: "database_name"
   });
   
 connection.connect(function(err) {
